@@ -1,0 +1,15 @@
+unit_tests:
+  - name: test_learner_responses
+    model: learner_responses
+    given:
+      - input: ref('dim_learner_last_response')
+        rows:
+          - {org: Org0, course_key: course-v1:Org0+DemoX+2bc51b,  object_id: http://localhost:18000/xblock/block-v1:course-v1:Org0+DemoX+2bc51b+type@problem+block@b6548753,  problem_id: block-v1:course-v1:Org0+DemoX+2bc51b+type@problem+block@b6548753, problem_link: <a href="http://localhost:18000/xblock/block-v1:course-v1:Org0+DemoX+2bc51b+type@problem+block@b6548753" target="_blank">3:3:2 - Problem 26</a>,  display_name_with_location:	3:3:2 - Problem 26, graded:	false,  actor_id: abb4911f-0c4a-4904-8004-aacfeb710346, course_order:	26, interaction_type:	other, attempts: 5, success: true, emission_time: 2024-03-12T12:40:46, responses: A correct answer, scaled_score: 0.6470588445663452}
+          - {org: Org0, course_key: course-v1:Org0+DemoX+2bc51b,  object_id: http://localhost:18000/xblock/block-v1:course-v1:Org0+DemoX+2bc51b+type@problem+block@f116ead5,  problem_id: block-v1:course-v1:Org0+DemoX+2bc51b+type@problem+block@f116ead5, problem_link: <a href="http://localhost:18000/xblock/block-v1:course-v1:Org0+DemoX+2bc51b+type@problem+block@f116ead5" target="_blank">1:4:0 - Problem 29</a>,  display_name_with_location:	1:4:0 - Problem 29, graded:	false,  actor_id: abb4911f-0c4a-4904-8004-aacfeb710346, course_order:	29, interaction_type:	other, attempts: 1, success: true, emission_time: 2024-03-11T20:45:53, responses: An incorrect answer, scaled_score: 0.43478259444236755}
+      - input: ref('dim_student_status')
+        rows:
+          - {org: Org0, course_key: course-v1:Org0+DemoX+2bc51b, actor_id: abb4911f-0c4a-4904-8004-aacfeb710346, course_name: 2bc51b (small), course_run: 2bc51b, approving_state: failed, enrollment_mode:	verified, enrollment_status: registered, course_grade:	0.5, grade_bucket: 	50-59%, username:	actor_73, name: Actor 73, email: actor_73@aspects.invalid, enrolled_at: 2024-03-12T05:18:45}
+    expect:
+      rows:
+        - {org: Org0, course_key: course-v1:Org0+DemoX+2bc51b, actor_id: abb4911f-0c4a-4904-8004-aacfeb710346,  object_id: http://localhost:18000/xblock/block-v1:course-v1:Org0+DemoX+2bc51b+type@problem+block@b6548753, course_grade:	0.5, approving_state: failed, responses: A correct answer, correct_first_attempt: 0}
+        - {org: Org0, course_key: course-v1:Org0+DemoX+2bc51b, actor_id: abb4911f-0c4a-4904-8004-aacfeb710346,  object_id: http://localhost:18000/xblock/block-v1:course-v1:Org0+DemoX+2bc51b+type@problem+block@f116ead5, course_grade:	0.5, approving_state: failed, responses: An incorrect answer, correct_first_attempt: 1}

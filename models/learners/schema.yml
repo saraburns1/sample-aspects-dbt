@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: learner_responses
+    description: "Learner responses to problems along with their course status"
+    columns:
+      - name: org
+        description: "Organization offering the course"
+        type: string
+      - name: course_key
+        description: "Course key"
+        type: string
+      - name: actor_id
+        description: "Unique identifier for the user"
+        type: string
+      - name: object_id
+        description: "The unique identifier for the problem"
+        type: string
+      - name: attempts
+        description: "The number of attempts made by the user on the problem"
+        type: timestamp
+      - name: course_grade
+        description: "The grade of the user in the course"
+        type: float32
+      - name: approving_state
+        description: "The approving state of the user's course status"
+        type: string
+      - name: responses
+        description: "The responses submitted by the user for the problem"
+        type: string

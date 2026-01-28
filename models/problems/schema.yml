@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: enrollment_mode
+    description: "Enrollment mode of users in the course"
+    columns:
+      - name: org
+        description: "Organization offering the course"
+        type: string
+      - name: course_key
+        description: "Course key"
+        type: string
+      - name: actor_id
+        description: "Unique identifier for the user"
+        type: string
+      - name: enrollment_mode
+        description: "The enrollment mode of the user"
+        type: string
+      - name: emission_time
+        description: "The time when the enrollment status was recorded"
+        type: timestamp
+      - name: course_name
+        description: "The name of the course"
+        type: string
+      - name: course_run
+        description: "The course run identifier"
+        type: string
